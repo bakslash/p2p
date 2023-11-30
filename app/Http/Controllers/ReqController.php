@@ -34,9 +34,9 @@ class ReqController extends Controller
         ]);
 
         Req::create([
-            'department_id' => $request->input('department_id'),
+            'department_id' => $request->input('department_id' ,1),
             'urgency' => $request->input('urgency'),
-            'purpose_of_purchase' => $request->input('purpose_of_purchase'),
+            'purpose_of_purchase' => $request->input('purpose_of_purchase','it'),
             'location' => $request->input('location'),
             'subcompany' => $request->input('subcompany'),
             'vessel' => $request->input('vessel'),
