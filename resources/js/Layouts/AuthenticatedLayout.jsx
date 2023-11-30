@@ -9,7 +9,24 @@ import verticalMenu from '../verticalMenu';
 export default function Authenticated({ user, header, children }) {
   const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 const menuData=verticalMenu
-console.log(menuData);
+// Add this utility function
+const formatDate = (dateString) => {
+  const options = {
+      weekday: 'long', // full day name (e.g., "Monday")
+      month: 'long',   // full month name (e.g., "January")
+      day: 'numeric'   // day of the month
+    };
+  const formattedDate = new Date(dateString).toLocaleDateString('en-US', options);
+  return formattedDate;
+};
+
+const [currentDate, setCurrentDate] = useState(new Date());
+
+// Function to update the date
+const updateDate = () => {
+  const newDate = new Date(); // Get the current date and time
+  setCurrentDate(newDate); // Update the state
+};
   return (
     <div className="min-h-screen bg-gray-100 flex">
       {/* Sidebar */}
@@ -23,7 +40,9 @@ console.log(menuData);
 
         {header && (
           <header className="bg-white shadow">
-            <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
+            <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <button onClick={updateDate}>   {currentDate.toLocaleString()}</button>  
+              {header}</div>
           </header>
         )}
 

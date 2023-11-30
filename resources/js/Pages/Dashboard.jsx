@@ -66,31 +66,20 @@ export default function Dashboard({ auth }) {
         setIsAddFormOpen(false); // Close the modal after submission
     };
 
-// Add this utility function
-const formatDate = (dateString) => {
-    const options = {
-        weekday: 'long', // full day name (e.g., "Monday")
-        month: 'long',   // full month name (e.g., "January")
-        day: 'numeric'   // day of the month
-      };
-    const formattedDate = new Date(dateString).toLocaleDateString('en-US', options);
-    return formattedDate;
-};
-
-const [currentDate, setCurrentDate] = useState(new Date());
-
-  // Function to update the date
-  const updateDate = () => {
-    const newDate = new Date(); // Get the current date and time
-    setCurrentDate(newDate); // Update the state
-  };
+    const formatDate = (dateString) => {
+  const options = {
+      weekday: 'long', // full day name (e.g., "Monday")
+      month: 'long',   // full month name (e.g., "January")
+      day: 'numeric'   // day of the month
+    };
+    }
     return (
         <>
             <AuthenticatedLayout
                 user={auth.user}
                 header={
                     <>
-                    <button onClick={updateDate}>   {currentDate.toLocaleString()}</button>
+                    
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
                     </>
                     
