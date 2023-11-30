@@ -1,7 +1,10 @@
 // DataTable.jsx
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const DataTable = ({ reqs, handleSelect, formatDate }) => {
+const DataTable = ({ reqs, handleSelect, formatDate ,auth}) => {
+    console.log(auth);
     return (
         <div className="table-responsive text-nowrap mt-4">
         <table className="table  table-bordered text-center w-full">
@@ -21,19 +24,36 @@ const DataTable = ({ reqs, handleSelect, formatDate }) => {
               <tr key={req.id}>
                 <th scope="row">{req.id}</th>
                 <td>{req.purpose_of_purchase}</td>
-                <td>{req.staff_name}</td>
+                <td>{auth.user.name}</td>
                 <td>{req.department}</td>
                 <td>{formatDate(req.created_at)}</td>
                 <td>{req.completed ? 'True' : 'False'}</td>
                 <td>
-                  <button
-                    type="button"
-                    className="btn btn-outline-secondary btn-sm"
-                    onClick={() => handleSelect(req)}
-                  >
-                    Select
-                  </button>
-                </td>
+        <button
+          type="button"
+          className="btn btn-sm"
+          onClick={() => handleSelect(req)}
+          title="View"
+        >
+          <FontAwesomeIcon icon={faEye} className="text-gray-500" />
+        </button>
+        <button
+          type="button"
+          className="btn btn-sm ml-2"
+          onClick={() => handleSelect(req)}
+          title="Edit"
+        >
+          <FontAwesomeIcon icon={faEdit} className="text-blue-500" />
+        </button>
+        <button
+          type="button"
+          className="btn btn-sm ml-2"
+          onClick={() => handleSelect(req)}
+          title="Delete"
+        >
+          <FontAwesomeIcon icon={faTrash} className="text-red-500" />
+        </button>
+      </td>
               </tr>
             ))}
           </tbody>

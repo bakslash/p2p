@@ -68,21 +68,40 @@ export default function Dashboard({ auth }) {
 
 // Add this utility function
 const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+    const options = {
+        weekday: 'long', // full day name (e.g., "Monday")
+        month: 'long',   // full month name (e.g., "January")
+        day: 'numeric'   // day of the month
+      };
+    const formattedDate = new Date(dateString).toLocaleDateString('en-US', options);
     return formattedDate;
 };
 
+const [currentDate, setCurrentDate] = useState(new Date());
 
+  // Function to update the date
+  const updateDate = () => {
+    const newDate = new Date(); // Get the current date and time
+    setCurrentDate(newDate); // Update the state
+  };
     return (
         <>
             <AuthenticatedLayout
                 user={auth.user}
-                header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
+                header={
+                    <>
+                    <button onClick={updateDate}>   {currentDate.toLocaleString()}</button>
+                <h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
+                    </>
+                    
+            }
             >
+               
                 <Head title="Dashboard" />
-
+                
+              
                 <div className="py-12">
+                <h5 className='p-1 m-1 ml-10 mb-2'>Procurement Manager</h5>
                 {showModal?
       <div className='modal-full-height border border-gray-500 h-auto '>
        <AddFormModal showModal={showModal} setShowModal={setShowModal} />
@@ -94,7 +113,7 @@ const formatDate = (dateString) => {
                                     <div className="flex items-center space-x-2">
                                         <label className="text-sm font-small text-gray-500">Criteria</label>
                                         <select
-                                            className="form-select form-select-sm"
+                                            className="form-select form-select-sm rounded"
                                             id="supplier-category"
                                             value={criteria}
                                             onChange={(e) => setCriteria(e.target.value)}
@@ -107,7 +126,7 @@ const formatDate = (dateString) => {
                                         <label className="text-sm font-medium text-gray-500"></label>
                                         <input
                                             type="text"
-                                            className="form-input form-input-sm"
+                                            className="form-input form-input-sm rounded"
                                             id="supplier-code"
                                             placeholder=""
                                             value={code}
@@ -119,7 +138,7 @@ const formatDate = (dateString) => {
                                             type="button"
                                             className="text-gray-900 bg-white border 
                                               border-gray-400 focus:outline-none hover:bg-gray-100
-                                              focus:ring-4 focus:ring-gray-200 py-1 px-4"
+                                              focus:ring-4 focus:ring-gray-200 py-1 px-4 rounded"
                                             onClick={handleFindButtonClick}
                                         >
                                             Find
@@ -140,7 +159,7 @@ const formatDate = (dateString) => {
           type="button"
           className="text-gray-500 bg-green-400 border 
           border-gray-400 focus:outline-none hover:bg-gray-100
-          focus:ring-4 focus:ring-gray-200 py-1 px-4"
+          focus:ring-4 focus:ring-gray-200 py-1 px-4 rounded"
           onClick={() => setShowModal(true)}
         >
           Add
@@ -154,7 +173,7 @@ const formatDate = (dateString) => {
                                       
                                     
                                 </div>
-                                <DataTable reqs={reqs} handleSelect={handleSelect} formatDate={formatDate} />
+                                <DataTable reqs={reqs} handleSelect={handleSelect} formatDate={formatDate} auth={auth} />
 
                                 
 

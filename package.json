@@ -94,6 +94,9 @@
         ]
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.5.0",
+        "@fortawesome/free-solid-svg-icons": "^6.5.0",
+        "@fortawesome/react-fontawesome": "^0.2.0",
         "@mdi/font": "7.2.96",
         "@popperjs/core": "2.11.8",
         "apexcharts-clevision": "3.28.5",
