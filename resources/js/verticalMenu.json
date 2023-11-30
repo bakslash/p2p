@@ -1,0 +1,115 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Procurement",
+      "icon": "menu-icon tf-icons mdi mdi-home-outline",
+      "slug": "dashboard",
+      "active": true,
+      "submenu": [
+        {
+          "url": "/form/req",
+          "name": "Requisition",
+          "slug": "requisition",
+          "isOpen": true
+        },
+        {
+          "url": "/form/edit-req",
+          "name": "Approval",
+          "slug": "approval"
+        },
+        {
+          "url": "/form/edit-req",
+          "name": "Quotations",
+          "slug": "quotations"
+        },
+        {
+          "url": "/form/edit-req",
+          "name": "Purchase Order",
+          "slug": "purchase-order"
+        },
+        {
+          "url": "/form/edit-req",
+          "name": "Approval",
+          "slug": "approval"
+        }
+      ]
+    },
+    {
+      "name": "Goods Recieving",
+      "icon": "menu-icon tf-icons mdi mdi-window-maximize",
+      "slug": "layouts",
+      "submenu": [
+        {
+          "url": "layouts/without-menu",
+          "name": "Goods reciept Note ",
+          "slug": "layouts-without-menu"
+        }
+       
+      ]
+    },
+    {
+      "name": "Payments",
+      "icon": "menu-icon tf-icons mdi mdi-flip-to-front",
+      "slug": "payments",
+      "submenu": [
+        {
+          "url": "",
+          "name": "Invoice Processing",
+          "slug": "invoice-processing",
+          "target": "_blank"
+        },
+        {
+          "url": "",
+          "name": "Invoice",
+          "slug": "invoice-approval",
+          "target": "_blank"
+        },
+        {
+          "url": "",
+          "name": "Payment Processing",
+          "slug": "payment=processing",
+          "target": "_blank"
+        },
+        {
+          "url": "",
+          "name": "Contract Processing",
+          "slug": "contract=processing",
+          "target": "_blank"
+        }
+      ]
+    },
+    {
+      "name": " Reports",
+      "icon": "menu-icon tf-icons mdi mdi-grid",
+      "slug": "laravel-example",
+      "submenu": [
+        {
+          "url": "",
+          "name": "Suppliers",
+          "slug": "suppliers",
+          "target": "_blank"
+        },
+        {
+          "url": "",
+          "name": "Purchase Order",
+          "slug": "purchase-order",
+          "target": "_blank"
+        },
+        {
+          "url": "",
+          "name": "Invoices",
+          "slug": "invoices",
+          "target": "_blank"
+        },
+        {
+          "url": "",
+          "name": "Pending Approval",
+          "slug": "pending-approval",
+          "target": "_blank"
+        }
+      ]
+    }
+   
+  ]
+}
