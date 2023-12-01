@@ -1,5 +1,11 @@
 // FormModal.jsx
 import React, { useEffect, useState } from 'react';
+
+import { BrowserRouter as Router, Route ,NavLink,  useNavigate } from 'react-router-dom';
+
+
+import ReqDetails from '../Pages/ReqDetails';
+
 import {
   TEModal,
   TEModalDialog,
@@ -9,10 +15,11 @@ import {
   TEModalFooter,
   TERipple,
 } from "tw-elements-react";
-import axios from 'axios';
-// ... (previous imports)
+import axios from 'axios';// ... (previous imports)
+
 
 const FormModal = ({ showModal, setShowModal }) => {
+ const navigate =useNavigate
   const [formData, setFormData] = useState({
     subcompany: '',
     department_id: 1,
@@ -24,10 +31,10 @@ const FormModal = ({ showModal, setShowModal }) => {
     vessel: '',
     voyage: '',
     purchase_category: '',
-    dac_number:'',
+    dac_number: '',
     urgency: '',
     point_of_delivery: '',
-    office:''
+    office: ''
     // Add other form fields here
   });
 
@@ -37,12 +44,11 @@ const FormModal = ({ showModal, setShowModal }) => {
       [e.target.name]: e.target.value,
     }));
 
-    console.log(formData);
+  
   };
 
-
   const handleSubmit = async () => {
-    console.log('test');
+   
     try {
       const response = await axios.post('http://localhost:8000/reqs', formData);
       console.log('Form submitted successfully:', response.data);
@@ -52,20 +58,30 @@ const FormModal = ({ showModal, setShowModal }) => {
     }
   };
 
+  const handleProceedClick = () => {
+   setShowModal(false);
+    // Reload the page
+   // window.location.reload();
+    // Close the modal
+    navigate('/req')
+    
+  }
+
   return (
     <div className={showModal ? 'modal-full-height border border-gray-500 h-auto' : ''}>
       <TEModal show={showModal} setShow={setShowModal}>
         <TEModalDialog size="fullscreen">
           <TEModalContent>
             <TEModalHeader>
-              <h4>PR Details</h4>
+             
               <div>
                 <button
                   type="button"
                   className="text-gray-900 focus:outline-none hover:bg-gray-400
-                  focus:ring-4 focus:ring-gray-500 py-1 px-4 "
+                  focus:ring-4 focus:ring-gray-500 py-1 px-2 "
                   onClick={() => setShowModal(false)}
                 >
+                  
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -80,6 +96,10 @@ const FormModal = ({ showModal, setShowModal }) => {
               </div>
             </TEModalHeader>
             <TEModalBody>
+              <div className='mb-4'>
+              <h4 >PR Details</h4>
+              </div>
+          
               <form className="w-4/5" onSubmit={handleSubmit}>
 
                 <div className="flex flex-wrap w-auto mb-3 ">
@@ -328,14 +348,26 @@ const FormModal = ({ showModal, setShowModal }) => {
                 </div>
 
                 <div className="flex justify-end mt-3">
-                  <div className="mb-3">
-                    <button type="button"
-                      className="text-gray-500 bg-green-400 border 
-              border-gray-400 focus:outline-none hover:bg-gray-100
-              focus:ring-4 focus:ring-gray-200 py-1 px-4"
-                      onClick={handleSubmit}>Proceed to req Items</button>
-                  </div>
-                </div>
+                <div className="mb-3">
+                <Router>
+                {/* <NavLink to="/req"> */}
+    <button
+      type="button"
+      className="text-gray-500 bg-green-400 border 
+        border-gray-400 focus:outline-none hover:bg-gray-100
+        focus:ring-4 focus:ring-gray-200 py-1 px-4"
+        onClick={handleProceedClick}
+    >
+      Proceed to req Items
+    </button>
+  {/* </NavLink> */}
+                </Router>
+                
+                       
+
+  
+</div>
+</div>
               </form>
 
 

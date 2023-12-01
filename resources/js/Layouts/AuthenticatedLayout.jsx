@@ -34,9 +34,9 @@ const updateDate = () => {
 
       {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        <nav className="bg-white border-b border-gray-100">
-          {/* ... (rest of your navigation code) */}
-        </nav>
+        {/* <nav className="bg-white border-b border-gray-100">
+          {/* ... (rest of your navigation code) 
+        </nav> */}
 
         {header && (
           <header className="bg-white shadow">

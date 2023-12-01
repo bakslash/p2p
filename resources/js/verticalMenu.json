@@ -8,7 +8,7 @@
       "active": true,
       "submenu": [
         {
-          "url": "/form/req",
+          "url": "/dashboard",
           "name": "Requisition",
           "slug": "requisition",
           "isOpen": true

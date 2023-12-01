@@ -54,4 +54,38 @@ class ReqController extends Controller
 
         return response()->json(['message' => 'Req created successfully', 'req' => $request], 201);
     }
+    public function show($id)
+    {
+        // Fetch the req by its ID from the database
+        $req = Req::findOrFail($id);
+
+        // Pass the req data to the view
+        return view('req.show', compact('req'));
+    }
+
+    public function edit($id)
+    {
+        // Fetch the req by its ID from the database
+        $req = Req::findOrFail($id);
+
+        // Pass the req data to the view for editing
+        return view('req.edit', compact('req'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+           // 'field1' => 'required',
+            //'field2' => 'required',
+            // Add validation rules for other fields as needed
+        ]);
+
+        // Update the req in the database
+        $req = Req::findOrFail($id);
+        $req->update($validatedData);
+
+        // Redirect back to the req details page or wherever is appropriate
+        return redirect()->route('req.show', ['id' => $id])->with('success', 'Req updated successfully',$req);
+    }
 }

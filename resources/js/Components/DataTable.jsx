@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const DataTable = ({ reqs, handleSelect, formatDate ,auth}) => {
-    console.log(auth);
+    
     return (
         <div className="table-responsive text-nowrap mt-4">
         <table className="table  table-bordered text-center w-full">
