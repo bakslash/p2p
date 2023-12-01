@@ -82,7 +82,7 @@ const FormModal = ({ showModal, setShowModal }) => {
             <TEModalBody>
               <form className="w-4/5" onSubmit={handleSubmit}>
 
-                <div className="flex flex-wrap w-full mb-3">
+                <div className="flex flex-wrap w-auto mb-3 ">
                   <div className="w-full md:w-1/3 mb-3">
                     <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="subcompany">
                       Sub Company
