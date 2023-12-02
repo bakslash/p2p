@@ -32,7 +32,7 @@ const DataTable = ({ reqs, handleSelect, formatDate ,auth}) => {
         <button
           type="button"
           className="btn btn-sm"
-          onClick={() => handleSelect(req)}
+          onClick={() => handleSelect(req, 'View')}
           title="View"
         >
           <FontAwesomeIcon icon={faEye} className="text-gray-500" />
@@ -40,7 +40,7 @@ const DataTable = ({ reqs, handleSelect, formatDate ,auth}) => {
         <button
           type="button"
           className="btn btn-sm ml-2"
-          onClick={() => handleSelect(req)}
+          onClick={() => handleSelect(req ,"Edit")}
           title="Edit"
         >
           <FontAwesomeIcon icon={faEdit} className="text-blue-500" />

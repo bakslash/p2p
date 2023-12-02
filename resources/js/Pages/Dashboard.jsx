@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 import AddFormModal from '../Components/FormModal';
 import ViewReqModal from './ViewReqModal';
+import EditReqModal from './EditReqModal';
 import DataTable from '../Components/DataTable';
 import axios from 'axios';
 
@@ -19,6 +20,7 @@ const Dashboard = ({ auth }) => {
     const [req, setReq] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [showReqModal, setShowReqModal] = useState(false);
+    const [showEditModal, setShowEditModal] = useState(false);
 
 
     const URL = 'http://localhost:8000'
@@ -53,16 +55,16 @@ const Dashboard = ({ auth }) => {
     };
     const handleSelect = (req, actionType ) => {
         setReq(req)
-        console.log('req', req );
-        setShowReqModal(true);
+        console.log('req', actionType);
+        
 
         // Perform different actions based on the actionType
         switch (actionType) {
-            case 'view':
+            case 'View':
                 setShowReqModal(true);
                 break;
-            case 'edit':
-                // Implement logic for editing
+            case 'Edit':
+                setShowEditModal(true)
                 break;
             case 'delete':
                 // Implement logic for deleting
@@ -95,16 +97,10 @@ const Dashboard = ({ auth }) => {
             <AuthenticatedLayout
                 user={auth.user}
                 header={
-
                     <h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
-
-
                 }
             >
-
                 <Head title="Dashboard" />
-
-
                 <div className="py-12">
                     {showModal ?
                         <div className='modal-full-height border border-gray-500 h-100vh '>
@@ -113,6 +109,10 @@ const Dashboard = ({ auth }) => {
                     {showReqModal ?
                         <div className='modal-full-height border border-gray-500 h-100vh '>
                             <ViewReqModal showReqModal={showReqModal} setShowReqModal={setShowReqModal} req={req}/>
+                        </div> : ""}
+                        {showEditModal ?
+                        <div className='modal-full-height border border-gray-500 h-100vh '>
+                            <EditReqModal showEditModal={showEditModal} setShowEditModal={setShowEditModal} req={req}/>
                         </div> : ""}
                     <h5 className='p-1 m-1 ml-10 mb-2'>Procurement Manager</h5>
 

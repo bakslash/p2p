@@ -17,7 +17,8 @@ import {
 import axios from 'axios';// ... (previous imports)
 
 
-const FormModal = ({ showModal, setShowModal }) => {
+const EditReqModal = ({ showEditModal, setShowEditModal ,req}) => {
+    console.log('edit',req);
  const navigate =useNavigate
   const [formData, setFormData] = useState({
     subcompany: '',
@@ -49,7 +50,7 @@ const FormModal = ({ showModal, setShowModal }) => {
   const handleSubmit = async () => {
    
     try {
-      const response = await axios.post('http://localhost:8000/reqs', formData);
+      const response = await axios.post(`http://localhost:8000/req${id}`, formData);
       console.log('Form submitted successfully:', response.data);
       setShowModal(false);
       navigate('/req')
@@ -69,18 +70,19 @@ const FormModal = ({ showModal, setShowModal }) => {
   }
 
   return (
-    <div className={showModal ? 'modal-full-height border border-gray-500 h-auto' : ''}>
-      <TEModal show={showModal} setShow={setShowModal}>
+    <div className={showEditModal ? 'flex items-center justify-center modal-full-height border border-gray-500 h-auto' : ''}>
+      <TEModal show={showEditModal} setShow={setShowEditModal}>
         <TEModalDialog size="fullscreen">
           <TEModalContent>
             <TEModalHeader>
              
-              <div>
+              <div className='flex flex-center'>
+               
                 <button
                   type="button"
                   className="text-gray-900 focus:outline-none hover:bg-gray-400
                   focus:ring-4 focus:ring-gray-500 py-1 px-2 "
-                  onClick={() => setShowModal(false)}
+                  onClick={() => setShowEditModal(false)}
                 >
                   
                   <svg
@@ -94,10 +96,13 @@ const FormModal = ({ showModal, setShowModal }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
+                
               </div>
             </TEModalHeader>
             <TEModalBody className='flex items-center justify-center min-h-700px'>
+              <div className='mb-4'>
               
+              </div>
           
               <form className="w-4/5" onSubmit={handleSubmit}>
 
@@ -160,7 +165,11 @@ const FormModal = ({ showModal, setShowModal }) => {
                       htmlFor="vat">
                       Urgency
                     </label>
-                    <select className="form-select rounded" id="urgency" name="urgency" required onChange={handleChange}  >
+                    <select 
+                    className="form-select rounded"
+                     id="urgency" 
+                     name="urgency" 
+                     required onChange={handleChange}  >
                       <option value="" disabled selected>Select Urgency</option>
                       <option value="category1">Category 1</option>
                       <option value="category2">Category 2</option>
@@ -171,7 +180,11 @@ const FormModal = ({ showModal, setShowModal }) => {
                       htmlFor="point-of-delivery">
                       Point of delivery(Office)
                     </label>
-                    <select className="form-select rounded" id="point-of-delivery" name="point_of_delivery" required onChange={handleChange}>
+                    <select 
+                    className="rounded form-select" 
+                    id="point-of-delivery" 
+                    name="point_of_delivery"
+                    required onChange={handleChange}>
                       <option value="" disabled selected>Select PoD</option>
                       <option value="category1">Category 1</option>
                       <option value="category2">Category 2</option>
@@ -331,17 +344,22 @@ const FormModal = ({ showModal, setShowModal }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
                   <div className="mb-3">
                     <label className="col-form-label" htmlFor="document-upload">Upload Documents</label>
-                    <input type="file" className="form-control " id="document-upload" name="document-upload" required
+                    <input 
+                    type="file" 
+                    className="form-control rounded"
+                    id="document-upload" 
+                    name="document-upload" 
+                    required
+                    onChange={handleChange} />
+                  </div>
+                  <div className="mb-3">
+                    <label className="col-form-label" htmlFor="document-upload">Upload Documents</label>
+                    <input type="file" className="form-control rounded" id="document-upload" name="document-upload" required
                       onChange={handleChange} />
                   </div>
                   <div className="mb-3">
                     <label className="col-form-label" htmlFor="document-upload">Upload Documents</label>
-                    <input type="file" className="form-control" id="document-upload" name="document-upload" required
-                      onChange={handleChange} />
-                  </div>
-                  <div className="mb-3">
-                    <label className="col-form-label" htmlFor="document-upload">Upload Documents</label>
-                    <input type="file" className="form-control" id="document-upload" name="document-upload" required
+                    <input type="file" className="form-control rounded" id="document-upload" name="document-upload" required
                       onChange={handleChange} />
                   </div>
                 </div>
@@ -361,19 +379,11 @@ const FormModal = ({ showModal, setShowModal }) => {
     </button>
   {/* </NavLink> */}
                 </Router>
-                
-                       
-
-  
 </div>
 </div>
               </form>
 
-
-
             </TEModalBody>
-
-
             <TEModalFooter>
               {/* ... (rest of your footer content) */}
             </TEModalFooter>
@@ -384,4 +394,4 @@ const FormModal = ({ showModal, setShowModal }) => {
   );
 };
 
-export default FormModal;
+export default EditReqModal;
