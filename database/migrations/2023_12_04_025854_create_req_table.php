@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('requisitions', function (Blueprint $table) {
+        Schema::create('req', function (Blueprint $table) {
             $table->id();
-            $table->string('subcompany');
+            $table->string('subcompany')->nullable();
             $table->string('department');
-            $table->string('purpose_of_purchase');
+            
+            $table->string('purpose_of_purchase')->nullable();
             $table->string('urgency');
             $table->string('point_of_delivery');
             $table->string('location');
@@ -29,6 +30,7 @@ return new class extends Migration
            
             $table->string('vat');
             $table->string('req_attachemnt');
+           
             $table->timestamps();
         });
     }
@@ -38,6 +40,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('requisitions');
+        Schema::dropIfExists('req');
     }
 };

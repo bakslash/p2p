@@ -3,9 +3,9 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import React, { useState, useEffect } from 'react';
 
-import AddFormModal from '../Components/FormModal';
-import ViewReqModal from './ViewReqModal';
-import EditReqModal from './EditReqModal';
+import AddFormModal from './AddReqForm';
+import ViewReqModal from './ViewReqForm';
+import EditReqModal from './EditReqForm';
 import DataTable from '../Components/DataTable';
 import axios from 'axios';
 
@@ -53,10 +53,10 @@ const Dashboard = ({ auth }) => {
     const handleAddButtonClick = () => {
         setIsAddFormOpen(true);
     };
-    const handleSelect = (req, actionType ) => {
+    const handleSelect = (req, actionType) => {
         setReq(req)
         console.log('req', actionType);
-        
+
 
         // Perform different actions based on the actionType
         switch (actionType) {
@@ -64,7 +64,9 @@ const Dashboard = ({ auth }) => {
                 setShowReqModal(true);
                 break;
             case 'Edit':
-                setShowEditModal(true)
+                window.location.href = `/edit_req/${req.id}`;
+                    
+                
                 break;
             case 'delete':
                 // Implement logic for deleting
@@ -79,6 +81,7 @@ const Dashboard = ({ auth }) => {
         console.log('Form submitted with data:', formData);
         // Add your logic to send the form data to the server or perform any necessary actions
         setIsAddFormOpen(false); // Close the modal after submission
+
     };
 
 
@@ -91,6 +94,10 @@ const Dashboard = ({ auth }) => {
         const formattedDate = new Date(dateString).toLocaleDateString('en-US', options);
         return formattedDate;
     };
+    const handleViewReq = () => {
+
+        setShowModal(true)
+    }
 
     return (
         <>
@@ -108,11 +115,11 @@ const Dashboard = ({ auth }) => {
                         </div> : ""}
                     {showReqModal ?
                         <div className='modal-full-height border border-gray-500 h-100vh '>
-                            <ViewReqModal showReqModal={showReqModal} setShowReqModal={setShowReqModal} req={req}/>
+                            <ViewReqModal showReqModal={showReqModal} setShowReqModal={setShowReqModal} req={req} />
                         </div> : ""}
-                        {showEditModal ?
+                    {showEditModal ?
                         <div className='modal-full-height border border-gray-500 h-100vh '>
-                            <EditReqModal showEditModal={showEditModal} setShowEditModal={setShowEditModal} req={req}/>
+                            <EditReqModal showEditModal={showEditModal} setShowEditModal={setShowEditModal} req={req} />
                         </div> : ""}
                     <h5 className='p-1 m-1 ml-10 mb-2'>Procurement Manager</h5>
 
@@ -164,16 +171,18 @@ const Dashboard = ({ auth }) => {
                                     </style>
 
                                     <div className="flex items-center mt-1">
+                                        <a href='/add_req' className="">
 
-                                        <button
-                                            type="button"
-                                            className="text-gray-500 bg-green-400 border 
+                                            <button
+                                                type="button"
+                                                className="text-gray-500 bg-green-400 border 
                                     border-gray-400 focus:outline-none hover:bg-gray-100
                                     focus:ring-4 focus:ring-gray-200 py-1 px-4 rounded"
-                                            onClick={() => { console.log('test', showModal), setShowModal(true) }}
-                                        >
-                                            Add
-                                        </button>
+                                            // onClick={handleViewReq}
+                                            >
+                                                Add
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                                 <DataTable reqs={reqs} handleSelect={handleSelect} formatDate={formatDate} auth={auth} />
@@ -181,6 +190,7 @@ const Dashboard = ({ auth }) => {
                         </div>
                     </div>
                 </div>
+                
             </AuthenticatedLayout>
         </>
     );

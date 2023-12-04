@@ -1,22 +1,18 @@
-
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDepartmentIdToRequisitionsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
-        Schema::table('requisitions', function (Blueprint $table) {
-            $table->string('req_file')->constrained();
+        Schema::table('reqs', function (Blueprint $table) {
+            $table->dropColumn('department_id'); // Remove this line for the 'department' column
         });
     }
 
@@ -27,8 +23,8 @@ class AddDepartmentIdToRequisitionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('requisitions', function (Blueprint $table) {
-            $table->dropColumn('department_id');
+        Schema::table('reqs', function (Blueprint $table) {
+            $table->string('department_id'); // Add this line to revert the removal
         });
     }
-}
+};

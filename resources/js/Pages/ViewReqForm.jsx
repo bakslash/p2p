@@ -61,7 +61,7 @@ const ReqView = ({ data }) => {
 
 
 
-const ViewReqModal = ({ showReqModal, setShowReqModal,req }) => {
+const ViewReq = ({ showReqModal, setShowReqModal,req }) => {
   console.log('test vo',req);
   const navigate = useNavigate
 
@@ -106,4 +106,4 @@ const ViewReqModal = ({ showReqModal, setShowReqModal,req }) => {
   );
 };
 
-export default ViewReqModal;
+export default ViewReq;

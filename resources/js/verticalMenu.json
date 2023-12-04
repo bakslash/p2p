@@ -9,13 +9,13 @@
       "submenu": [
         {
           "url": "/dashboard",
-          "name": "Requisition",
+          "name": "Add/Edit PR",
           "slug": "requisition",
           "isOpen": true
         },
         {
-          "url": "/form/edit-req",
-          "name": "Approval",
+          "url": "/add_req",
+          "name": "Add/Edit Quotation",
           "slug": "approval"
         },
         {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "name": "Goods Recieving",
+      "name": "Pending Approval",
       "icon": "menu-icon tf-icons mdi mdi-window-maximize",
       "slug": "layouts",
       "submenu": [
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "name": "Payments",
+      "name": "Cancelled LPOs",
       "icon": "menu-icon tf-icons mdi mdi-flip-to-front",
       "slug": "payments",
       "submenu": [
@@ -65,12 +65,7 @@
           "slug": "invoice-approval",
           "target": "_blank"
         },
-        {
-          "url": "",
-          "name": "Payment Processing",
-          "slug": "payment=processing",
-          "target": "_blank"
-        },
+        
         {
           "url": "",
           "name": "Contract Processing",
@@ -80,7 +75,7 @@
       ]
     },
     {
-      "name": " Reports",
+      "name": " System setup",
       "icon": "menu-icon tf-icons mdi mdi-grid",
       "slug": "laravel-example",
       "submenu": [
@@ -90,18 +85,47 @@
           "slug": "suppliers",
           "target": "_blank"
         },
+        
         {
           "url": "",
-          "name": "Purchase Order",
-          "slug": "purchase-order",
+          "name": "Pending Approval",
+          "slug": "pending-approval",
           "target": "_blank"
-        },
+        }
+      ]
+    },
+    {
+      "name": " Summary Reports",
+      "icon": "menu-icon tf-icons mdi mdi-grid",
+      "slug": "laravel-example",
+      "submenu": [
         {
           "url": "",
-          "name": "Invoices",
-          "slug": "invoices",
+          "name": "Suppliers",
+          "slug": "suppliers",
           "target": "_blank"
         },
+        
+        {
+          "url": "",
+          "name": "Pending Approval",
+          "slug": "pending-approval",
+          "target": "_blank"
+        }
+      ]
+    },
+    {
+      "name": " Invoice manager",
+      "icon": "menu-icon tf-icons mdi mdi-grid",
+      "slug": "laravel-example",
+      "submenu": [
+        {
+          "url": "",
+          "name": "Suppliers",
+          "slug": "suppliers",
+          "target": "_blank"
+        },
+        
         {
           "url": "",
           "name": "Pending Approval",
