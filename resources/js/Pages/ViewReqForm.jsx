@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import { BrowserRouter as Router, Route, NavLink, useNavigate } from 'react-router-dom';
+import ReqItemsTable from '../Components/ReqItemsTable'; // Add this import
+
 
 import ReqDetails from './ReqDetails';
 import {
@@ -16,6 +18,25 @@ import axios from 'axios';// ... (previous imports)
 
 
 const ReqView = ({ data }) => {
+
+  const [items, setItems] = useState([]);
+  const [status, setStatus] = useState(true);
+
+  const fetchReqDetails = async () => {
+      try {
+          const response = await axios.get(`/allreq_details`);
+          console.log('res', response);
+          setItems(response.data.reqs);
+      } catch (error) {
+          console.error('Error fetching reqs:', error);
+      }
+  };
+  console.log(items);
+
+  // useEffect to fetch reqs data when the component mounts
+  useEffect(() => {
+      fetchReqDetails();
+  }, []);
   return (
     <div className="container mx-auto mt-2 p-4 bg-white shadow-m
     d rounded-md w-4/5 md:w-4/5 lg:w-3/4 xl:w-2/3 border-4 overflow-auto  border ">
@@ -26,19 +47,20 @@ const ReqView = ({ data }) => {
         <th className="py-2 px-4 border text-left">Quantity</th>
   </thead>
   <tbody>
-    
+  {items.map((item) => 
       <tr>
-        <td className="py-1 px-1 border text-left">laptop</td>
-        <td className="py-1 px-1 border text-left">20</td>
+        <td className="py-1 px-1 border text-left">{item.item}</td>
+        <td className="py-1 px-1 border text-left">{item.quantity}</td>
       </tr>
-  
+  )}
   </tbody>
   </table>
     <h3 className=" font-semibold mb-1 p-2 border text-center ">SUPPLIES REQUISITION</h3>
 
     <div className="overflow-x-auto ">
       <h6 className="border bg-gray-100 text-center p-2">COST OF ALLOCATION(FILL APPLICABLE)</h6>
-      <table className="w-full table-auto">
+    
+       <table className="w-full table-auto">
   <thead>
     
   </thead>
@@ -50,7 +72,7 @@ const ReqView = ({ data }) => {
       </tr>
     ))}
   </tbody>
-</table>
+</table> 
 
     </div>
   </div>
@@ -62,6 +84,8 @@ const ReqView = ({ data }) => {
 
 
 const ViewReq = ({ showReqModal, setShowReqModal,req }) => {
+
+  
   console.log('test vo',req);
   const navigate = useNavigate
 

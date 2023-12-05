@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate ,useParams} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import { useEffect } from 'react';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-
-
-const EditReqForm = () => {
+const AddReqForm = () => {
 
   const [formData, setFormData] = useState({
     subcompany: '',
@@ -24,66 +20,35 @@ const EditReqForm = () => {
     point_of_delivery: '',
     office: '',
   });
-  var id 
 
-  const parsePageId = (path) => path.substring(path.lastIndexOf('/') + 1)
-  id = parsePageId(window.location.pathname)
+  const handleChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
-const [editReq,setEditReq] =useState({})
-
- const handleChange = (e) => {
-  setEditReq((prevData) => ({
-    ...prevData,
-    [e.target.name]: e.target.value,
-  }));
- 
-};
- 
+  const handleSubmit = async () => {
+    try {
+   
   
-console.log(editReq);
+      const response = await axios.post('http://localhost:8000/reqs', formData);
+  console.log(formData);
+      if (response) {
 
-
-useEffect(() => {
-  fetchReqs();
-}, [id]);
-
-const fetchReqs = async () => {
-  try {
-    const response = await axios.get(`/req/${id}`);
-    setEditReq(response.data.req);
-  } catch (error) {
-    console.error('Error fetching reqs:', error);
-  }
-};
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  try {
-    const response = await axios.patch(`http://localhost:8000/req/${id}/edit`, editReq);
-    console.log('data', editReq, response);
-
-    if (response) {
-      window.location.href = '/req_details';
-      console.log('success');
-    } else {
-      console.log('Req failed:', response.data.message || 'Unknown error');
+        // Assuming you want to navigate to '/req_details' on success
+        window.location.href = '/req_details';
+      } else {
+        console.log('check Req :', response.data);
+      }
+  
+    } catch (error) {
+      console.error('Error submitting form:', error.message || 'Unknown error');
     }
-  } catch (error) {
-    console.error('Error submitting form:', error.message || 'Unknown error');
-  }
-};
-
+  };
+  
 
   return (
-    <>
-            {/* <AuthenticatedLayout
-                user={auth.user}
-                header={
-                    <h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
-                }
-            >
-                <Head title="Dashboard" /> */}
     <div className='fixed inset-0 flex items-center justify-center overflow-y-auto' >
       <div className="bg-white w-4/5 md:w-4/5 lg:w-4/5 p-6 rounded-md shadow-md">
         <div className="flex items-center justify-between mb-4">
@@ -107,9 +72,9 @@ const handleSubmit = async (e) => {
           </button>
 
 </a>
-
+          
         </div>
-        <form >
+        <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
             {/* Field 1: Sub Company */}
             <div className="mb-4 w-4/5">
@@ -119,10 +84,9 @@ const handleSubmit = async (e) => {
                 id="subcompany"
                 name="subcompany"
                 required
-                value={editReq.subcompany}
                 onChange={handleChange}
               >
-                <option value="" disabled >Select sub company</option>
+                <option value="" disabled selected>Select sub company</option>
                 <option value="btl"> BTL</option>
                 <option value="ilst"> ILST</option>
               </select>
@@ -137,10 +101,9 @@ const handleSubmit = async (e) => {
                 name="department"
                 required
                 onChange={handleChange}
-                value={editReq.department}
-
+            
               >
-                <option value="" disabled>Select a department</option>
+                <option value="" disabled selected> Select a department</option>
                 <option value="finance">finance</option>
                 <option value="workshop">workshop </option>
               </select>
@@ -156,7 +119,6 @@ const handleSubmit = async (e) => {
                 name="purpose_of_purchase"
                 placeholder="Purpose of Purchase"
                 required
-                value={editReq.purpose_of_purchase}
                 onChange={handleChange}
 
               />
@@ -173,7 +135,6 @@ const handleSubmit = async (e) => {
                 id="urgency"
                 name="urgency"
                 required
-                value={editReq.urgency}
                 onChange={handleChange}
               >
                 <option value="" disabled selected>Select urgency</option>
@@ -192,7 +153,6 @@ const handleSubmit = async (e) => {
                 name="point_of_delivery"
                 required
                 onChange={handleChange}
-                value={editReq.point_of_delivery}
 
               >
                 <option value="" disabled selected>point of delivery</option>
@@ -211,7 +171,6 @@ const handleSubmit = async (e) => {
                 id="location"
                 name="location"
                 placeholder="location"
-                value={editReq.location}
                 required
                 onChange={handleChange}
 
@@ -231,7 +190,6 @@ const handleSubmit = async (e) => {
                 id="file_number"
                 name="file_number"
                 placeholder="file number"
-                value={editReq.file_number}
                 required
                 onChange={handleChange}
 
@@ -249,7 +207,6 @@ const handleSubmit = async (e) => {
                 id="vessel"
                 name="vessel"
                 placeholder="vessel"
-                value={editReq.vessel}
                 required
                 onChange={handleChange}
 
@@ -265,7 +222,6 @@ const handleSubmit = async (e) => {
                 id="voyage"
                 name="voyage"
                 placeholder="voyage"
-                value={editReq.voyage}
                 required
                 onChange={handleChange}
 
@@ -364,7 +320,7 @@ const handleSubmit = async (e) => {
                 onChange={handleChange}
 
               >
-                 <option value="" disabled selected>select vat</option>
+                <option value="" disabled selected>select vat</option>
                 <option value="16%">16%</option>
                 <option value="8%">8%</option>
               </select>
@@ -395,20 +351,20 @@ const handleSubmit = async (e) => {
           </div>
 
           <div className="flex justify-end mt-6">
+         
             <button
-             type="submit"
+              type="button"
               className="text-gray-500 bg-green-400 border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 py-1 px-4"
               onClick={handleSubmit}
             >
-            Proceed to Req Items
+              Proceed to req Items
             </button>
+       
           </div>
         </form>
       </div>
     </div>
-    {/* </AuthenticatedLayout> */}
-    </>
   );
 };
 
-export default EditReqForm;
+export default AddReqForm;

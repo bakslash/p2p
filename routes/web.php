@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReqController;
+use App\Http\Controllers\ReqDetailsController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -26,6 +27,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/edit_req/{id}', fn ($id) => Inertia::render('EditReqForm'))->name('edit_req');
     //
     Route::patch('/req/{id}/edit',  [ReqController::class, 'update'])->name('req.update');
+
+
+    Route::get('/allreq_details', [ReqDetailsController::class, 'AllReqDetails']);
+
+    Route::post('/req_details/add', [ReqDetailsController::class, 'add']);
+
+// Fetch ReqDetails for a req_id
+    Route::get('/req_details/fetch/{req_id}', [ReqDetailsController::class, 'fetch']);
     
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
