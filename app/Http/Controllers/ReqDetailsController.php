@@ -7,11 +7,11 @@ use App\Models\reqs_details; // Assuming you have a reqs_details model
 
 class ReqDetailsController extends Controller
 {
-    public function AllReqDetails()
+    public function AllReqItems()
     {
-        $reqDetails = reqs_details::all();
+        $reqItems = reqs_details::all();
 
-        return response()->json(['message' => 'Successfully retrieved all reqs', 'reqs' => $reqDetails], 200);
+        return response()->json(['message' => 'Successfully retrieved all reqs', 'reqs' => $reqItems], 200);
     }
     public function add(Request $request)
     {
@@ -25,7 +25,7 @@ class ReqDetailsController extends Controller
         ]);
 
         // Create a new reqs_details instance
-        $reqDetails = reqs_details::create([
+        $reqItems = reqs_details::create([
             
             'item' => $request->input('item'),
             'quantity' => $request->input('quantity'),
@@ -34,14 +34,45 @@ class ReqDetailsController extends Controller
             // Add other fields from your reqs_details table
         ]);
 
-        return response()->json(['message' => 'reqs_details added successfully', 'data' => $reqDetails], 201);
+        return response()->json(['message' => 'reqs items added successfully', 'data' => $reqItems], 201);
     }
 
-    public function fetch($reqId)
+    public function fetch($Id)
     {
         // Fetch reqs_details for a specific req_id
-        $reqDetails = reqs_details::where('req_id', $reqId)->get();
+        $reqItems = reqs_details::where('id', $Id)->get();
 
-        return response()->json(['data' => $reqDetails]);
+        return response()->json(['data' => $reqItems]);
     }
+
+    public function update(Request $request, $id)
+{
+    // Validate the request data
+    $request->validate([
+        'item' => 'required|string',
+        
+        'quantity' => 'required|integer',
+        // Add other validation rules for your reqs_details fields
+    ]);
+
+    // Find the reqs_details item by its ID
+    $reqItem = reqs_details::find($id);
+
+    // Check if the item exists
+    if (!$reqItem) {
+        return response()->json(['message' => 'Req item not found'], 404);
+    }
+
+    // Update the reqs_details item with the new data
+    $reqItem->update([
+        'item' => $request->input('item'),
+        'quantity' => $request->input('quantity'),
+        'measure' => $request->input('measure'),
+        'status' => $request->input('status'),
+        // Add other fields from your reqs_details table
+    ]);
+
+    return response()->json(['message' => 'Req item updated successfully', 'data' => $reqItem], 200);
+}
+
 }

@@ -2,6 +2,7 @@
 import React ,{useEffect,useState}from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 const ReqItemsTable = ({  handleSelect }) => {
   
@@ -12,7 +13,7 @@ const ReqItemsTable = ({  handleSelect }) => {
 
     const fetchReqDetails = async () => {
         try {
-            const response = await axios.get(`/allreq_details`);
+            const response = await axios.get(`/req_items`);
             console.log('res', response);
             setItems(response.data.reqs);
         } catch (error) {
@@ -22,10 +23,10 @@ const ReqItemsTable = ({  handleSelect }) => {
 
     // useEffect to fetch reqs data when the component mounts
     useEffect(() => {
-        fetchReqDetails();
+       // fetchReqDetails();
     }, []);
   return (
-    <div className="table-responsive text-nowrap mt-4 mb-6">
+    <div className="table-responsive text-nowrap  mb-6">
       <table className="table table-bordered text-center w-full">
         <thead className="thead-dark">
           <tr>

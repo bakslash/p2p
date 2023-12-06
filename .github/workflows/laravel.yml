@@ -1,4 +1,4 @@
-name: Laravel Tests
+name: Laravel and React Tests
 
 on:
   push:
@@ -30,12 +30,31 @@ jobs:
           php-version: '7.4'
 
       - name: Install Dependencies
-        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+        run: |
+          composer install --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Set up Laravel Environment
         run: |
           cp .env.example .env
           php artisan key:generate
 
-      - name: Run Tests
+      - name: Run Laravel Tests
         run: vendor/bin/phpunit
+
+  react-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install Node.js Dependencies
+        run: npm install
+
+      - name: Run React Tests
+        run: npm test

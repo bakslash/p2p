@@ -57,15 +57,15 @@ const fetchReqs = async () => {
 };
 
 const handleSubmit = async (e) => {
-  e.preventDefault();
+  //e.preventDefault();
 
   try {
     const response = await axios.patch(`http://localhost:8000/req/${id}/edit`, editReq);
     console.log('data', editReq, response);
 
     if (response) {
-      window.location.href = '/req_details';
-      console.log('success');
+      window.location.href = `/req_details`;
+      console.log('success' ,id);
     } else {
       console.log('Req failed:', response.data.message || 'Unknown error');
     }
@@ -92,7 +92,7 @@ const handleSubmit = async (e) => {
           <button
             type="button"
             className="text-gray-700 hover:text-gray-900 focus:outline-none"
-            onClick={() => setShowModal(false)}
+            
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

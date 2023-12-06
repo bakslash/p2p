@@ -1,22 +1,47 @@
 <?php
-// app/Http/Controllers/SupplierController.php
 
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
+use App\Models\Supplier;
 
 class SupplierController extends Controller
 {
-    public function create()
+    // Fetch all suppliers
+    public function index()
     {
-        // Assuming you have a SupplierCategory and Country model
-        $supplierCategories = SupplierCategory::pluck('name', 'id');
-        $countries = Country::pluck('name', 'id');
-
-        return view('supplier.form', compact('supplierCategories', 'countries'));
+        try {
+            $suppliers = Supplier::all();
+            return response()->json($suppliers);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
     }
 
+    // Add a new supplier
     public function store(Request $request)
     {
-        // Validate the form data and save to the database
+        try {
+            // Log the request data for debugging
+            \Log::info('Request data:', $request->all());
+    
+            $request->validate([
+                
+                // Add other validation rules for the remaining fields
+            ]);
+    
+            $newSupplier = Supplier::create($request->all());
+    
+            // Log the created supplier data for debugging
+            \Log::info('Created Supplier:', $newSupplier);
+    
+            return response()->json(['message' => 'Supplier added successfully', 'data' => $newSupplier]);
+        } catch (\Exception $e) {
+            // Log the actual error for debugging purposes
+            \Log::error($e);
+    
+            return response()->json(['error' => $e], 500);
+        }
     }
+    
 }

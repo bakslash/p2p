@@ -1,9 +1,10 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import React, { useState, useEffect } from 'react';
-import ReqDetailForm from './AddReqForm';
+import ReqDetail from './ReqDetails';
 import DataTable from '../Components/DataTable';
 import axios from 'axios';
+import ReqItemsTable from '@/Components/ReqItemsTable';
 
 export default function Dashboard({ auth }) {
 
@@ -48,36 +49,9 @@ export default function Dashboard({ auth }) {
                             <div className="card p-4">
 
                                 <div className="table-responsive text-nowrap mt-4 mb-6">
-                                    <table className="table  table-bordered text-center w-full">
-                                        <thead className="thead-dark">
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Item</th>
-                                                <th scope="col">Quantity</th>
-                                                <th scope="col">Action</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <td>1</td>
-                                            <td>Computer</td>
-                                            <td>20</td>
-                                            <td>
-                                                <button
-                                                    type="button"
-                                                    className="text-white bg-green-400
-                                            focus:outline-none hover:bg-gray-100
-                                            focus:ring-4 focus:ring-gray-200 py-1 px-4 rounded"
-                                                    onClick={addItem}
-                                                >
-                                                    Select
-                                                </button>
-                                            </td>
 
 
-                                        </tbody>
-                                    </table>
+                                  
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mb-6">
 

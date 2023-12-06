@@ -75,45 +75,76 @@
       ]
     },
     {
-      "name": " System setup",
-      "icon": "menu-icon tf-icons mdi mdi-grid",
-      "slug": "laravel-example",
-      "submenu": [
-        {
-          "url": "",
-          "name": "Suppliers",
-          "slug": "suppliers",
-          "target": "_blank"
-        },
-        
-        {
-          "url": "",
-          "name": "Pending Approval",
-          "slug": "pending-approval",
-          "target": "_blank"
-        }
-      ]
-    },
-    {
       "name": " Summary Reports",
       "icon": "menu-icon tf-icons mdi mdi-grid",
       "slug": "laravel-example",
       "submenu": [
         {
           "url": "",
-          "name": "Suppliers",
-          "slug": "suppliers",
+          "name": "",
+          "slug": "",
           "target": "_blank"
         },
         
         {
           "url": "",
-          "name": "Pending Approval",
-          "slug": "pending-approval",
+          "name": "",
+          "slug": "",
           "target": "_blank"
         }
       ]
     },
+    {
+      "name": " System setup",
+      "icon": "menu-icon tf-icons mdi mdi-grid",
+      "slug": "laravel-example",
+      "submenu": [
+        {
+          "url": "/add_suppliers",
+          "name": "Add/Edit Suppliers",
+          "slug": "add/edit suppliers",
+          "target": "_blank"
+        },
+        
+        {
+          "url": "/add_staff",
+          "name": "Add/Edit Staff",
+          "slug": "add/edit staff",
+          "target": "_blank"
+        },
+        {
+          "url": "/add_departments",
+          "name": "Add/Edit Departments",
+          "slug": "add/edit Departments",
+          "target": "_blank"
+        },
+        {
+          "url": "add_pod",
+          "name": "Add/Edit POD",
+          "slug": "add/edit POD",
+          "target": "_blank"
+        },
+        {
+          "url": "add_uom",
+          "name": "Add/Edit Units OM",
+          "slug": "add/edit Units OM",
+          "target": "_blank"
+        },
+        {
+          "url": "add_supplier_category",
+          "name": "Add/Edit Supplier_category",
+          "slug": "add/edit Supplier_category",
+          "target": "_blank"
+        },
+        {
+          "url": "approval_matrix",
+          "name": "Approval Matrix ",
+          "slug": "approval_matrix ",
+          "target": "_blank"
+        }
+      ]
+    },
+  
     {
       "name": " Invoice manager",
       "icon": "menu-icon tf-icons mdi mdi-grid",
@@ -121,15 +152,21 @@
       "submenu": [
         {
           "url": "",
-          "name": "Suppliers",
-          "slug": "suppliers",
+          "name": "Add/Edit Invoices",
+          "slug": "Add/Edit Invoices",
           "target": "_blank"
         },
         
         {
           "url": "",
-          "name": "Pending Approval",
-          "slug": "pending-approval",
+          "name": "Add/Edit Vouchers ",
+          "slug": "Add/Edit Vouchers-",
+          "target": "_blank"
+        },
+        {
+          "url": "",
+          "name": " Invoices Report",
+          "slug": " Invoices Report",
           "target": "_blank"
         }
       ]

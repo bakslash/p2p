@@ -109,7 +109,7 @@ const Dashboard = ({ auth }) => {
             >
                 <Head title="Dashboard" />
                 <div className="py-12">
-                    {showModal ?
+                    {/* {showModal ?
                         <div className='modal-full-height border border-gray-500 h-100vh '>
                             <AddFormModal showModal={showModal} setShowModal={setShowModal} />
                         </div> : ""}
@@ -120,7 +120,7 @@ const Dashboard = ({ auth }) => {
                     {showEditModal ?
                         <div className='modal-full-height border border-gray-500 h-100vh '>
                             <EditReqModal showEditModal={showEditModal} setShowEditModal={setShowEditModal} req={req} />
-                        </div> : ""}
+                        </div> : ""} */}
                     <h5 className='p-1 m-1 ml-10 mb-2'>Procurement Manager</h5>
 
                     <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
