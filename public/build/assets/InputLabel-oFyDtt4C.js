@@ -1,0 +1,1 @@
+import{R as r}from"../.vite/manifest.json";function o({value:t,className:e="",children:a,...m}){return r.createElement("label",{...m,className:"block font-medium text-sm text-gray-700 "+e},t||a)}export{o as I};
