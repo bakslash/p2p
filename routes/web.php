@@ -3,7 +3,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReqController;
 use App\Http\Controllers\ReqDetailsController;
 use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\StaffController;
+use App\Http\Controllers\staffController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\PoDController;
 use App\Http\Controllers\UoMController;
@@ -28,8 +28,8 @@ Route::get('/dep', [DepartmentController::class, 'index']);
 Route::post('/dep', [DepartmentController::class, 'store']);
 Route::get('/add_departments', fn () => Inertia::render('AddDepForm'))->name('add_departments');
 //staff routes
-Route::get('/staff', [StaffController::class, 'index']);
-Route::post('/staff', [StaffController::class, 'store']);
+Route::get('/staff', [staffController::class, 'index']);
+Route::post('/staff', [staffController::class, 'store']);
 Route::get('/add_staff', fn () => Inertia::render('AddStaffForm'))->name('add_staff');
 
 // routes/web.php
