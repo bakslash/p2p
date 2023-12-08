@@ -37,7 +37,7 @@ Route::get('/add_staff', fn () => Inertia::render('AddStaffForm'))->name('add_st
 use App\Http\Controllers\InvoiceController;
 
 Route::get('/add_invoice' ,fn () => Inertia::render('AddInvoice'))->name('add_invoice');
-Route::post('/invoices', [InvoiceController::class, 'store'])->name('invoices.store');
+Route::post('/invoices', [invoiceController::class, 'store'])->name('invoices.store');
 
 
 // Redirect root to the login route
