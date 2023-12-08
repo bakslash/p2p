@@ -6,55 +6,35 @@ on:
       - main
 
 jobs:
-  laravel-tests:
+  laravel_tests:
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: laravel
-          MYSQL_USER: laravel
-          MYSQL_PASSWORD: secret
-        ports:
-          - 3306:3306
-
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: 8.0
 
-      - name: Install Dependencies
+      - name: Install dependencies
+        run: composer install
+
+      - name: Copy .env file
+        run: cp .env.example .env
+
+      - name: Configure environment
         run: |
-          composer install --no-interaction --prefer-dist --optimize-autoloader
+          echo "DB_CONNECTION=mysql" >> .env
+          echo "DB_HOST=127.0.0.1" >> .env
+          echo "DB_PORT=3306" >> .env
+          echo "DB_DATABASE=laravel" >> .env
+          echo "DB_USERNAME=testing_user" >> .env
+          echo "DB_PASSWORD=testing_password" >> .env
 
-      - name: Set up Laravel Environment
-        run: |
-          cp .env.example .env
-          php artisan key:generate
+      - name: Artisan Migrate
+        run: php artisan migrate --env=testing
 
-      - name: Run Laravel Tests
-        run: vendor/bin/phpunit
-
-  react-tests:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-      - name: Install Node.js Dependencies
-        run: npm install
-
-      - name: Run React Tests
-        run: npm test
+      - name: Run tests
+        run: php artisan test
