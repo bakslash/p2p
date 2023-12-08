@@ -117,7 +117,8 @@
         "tw-elements-react": "^1.0.0-alpha2",
         
             "@vitejs/plugin-react": "^4.2.1",
-            "laravel-vite-plugin": "^1.0.0",
+            "laravel-vite-plugin": "^0.8.1",
+
 
             "vite": "^4.5.1"
 
