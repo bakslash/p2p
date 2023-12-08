@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Staff;
 
-class StaffController extends Controller
+class staffController extends Controller
 {
     // Fetch all staff
     public function index()
@@ -15,7 +15,7 @@ class StaffController extends Controller
         return response()->json(['staff' => $staff], 200);
     }
 
-    // Add new staff
+    // Add new staf
     public function store(Request $request)
     {
         $request->validate([
