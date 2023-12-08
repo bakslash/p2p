@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('reqs', function (Blueprint $table) {
-            $table->dropColumn('department_id'); // Remove this line for the 'department' column
+          // Remove this line for the 'department' column
         });
     }
 
