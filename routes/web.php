@@ -34,7 +34,7 @@ Route::get('/add_staff', fn () => Inertia::render('AddStaffForm'))->name('add_st
 
 // routes/web.php
 
-use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\invoiceController;
 
 Route::get('/add_invoice' ,fn () => Inertia::render('AddInvoice'))->name('add_invoice');
 Route::post('/invoices', [invoiceController::class, 'store'])->name('invoices.store');
