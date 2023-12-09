@@ -24,10 +24,11 @@ package-lock.log
 /.idea
 /.vscode
 
+/public/css
 /public/js
 
 # But not these files...
 !/public/assets/*
-
-
+/public/assets/js
+/public/assets/css
 /public/assets/vendor
