@@ -6,9 +6,18 @@ export default defineConfig({
     laravel({
       manifest: true,
       entry: 'resources/js/app.jsx',
-      input: 'resources/js/app.jsx', // Add this line with the correct entry file
+      input: 'resources/js/app.jsx',
     }),
   ],
+
+  server: {
+    proxy: {
+      '/': {
+        target: 'http://143.198.157.55/',  // Adjust this to match your Laravel development server
+        changeOrigin: true,
+      },
+    },
+  },
 
   build: {
     outDir: 'public/build',
