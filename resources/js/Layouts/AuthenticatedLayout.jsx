@@ -4,7 +4,7 @@ import React from 'react';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import Sidebar from '@/Components/Sidebar';
+import SideBar from '@/Components/SideBar';
 import verticalMenu from '../verticalMenu';
 export default function Authenticated({ user, header, children }) {
   const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -29,8 +29,8 @@ const updateDate = () => {
 };
   return (
     <div className="min-h-screen bg-gray-100 flex">
-      {/* Sidebar */}
-      <Sidebar menuData={menuData} user={user}/>
+      {/* SideBar */}
+      <SideBar menuData={menuData} user={user}/>
 
       {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden">

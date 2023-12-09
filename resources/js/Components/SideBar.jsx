@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Sidebar = ({ menuData, user }) => {
+const SideBar = ({ menuData, user }) => {
   const [openSubmenu, setOpenSubmenu] = useState(null);
 
   const handleSubmenuClick = (slug) => {
@@ -118,4 +118,4 @@ const Sidebar = ({ menuData, user }) => {
   );
 };
 
-export default Sidebar;
+export default SideBar;
