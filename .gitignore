@@ -24,7 +24,8 @@ package-lock.log
 /.idea
 /.vscode
 
-/public/css
+
+
 /public/js
 
 # But not these files...
