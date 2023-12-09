@@ -34,7 +34,7 @@ jobs:
           echo "DB_PASSWORD=testing_password" >> .env
 
       - name: Artisan Migrate
-        run: php artisan migrate --env=testing
+        run: php artisan migrate 
 
       - name: Run Laravel tests
         run: php artisan test
