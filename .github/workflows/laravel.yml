@@ -22,7 +22,7 @@ jobs:
         run: composer install
 
       - name: Copy .env file
-        run: cp .env.example .env
+        run: cp .env
 
       - name: Configure Laravel environment
         run: |
