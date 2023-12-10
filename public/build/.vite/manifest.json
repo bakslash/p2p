@@ -1,6 +1,6 @@
 {
-  "_AuthenticatedLayout-aWDFf3HU.js": {
-    "file": "assets/AuthenticatedLayout-aWDFf3HU.js",
+  "_AuthenticatedLayout-hC5W6ofq.js": {
+    "file": "assets/AuthenticatedLayout-hC5W6ofq.js",
     "imports": [
       "resources/js/app.jsx",
       "_SideBar-LxcvG1Xt.js"
@@ -195,9 +195,9 @@
     "src": "resources/js/Pages/Auth/VerifyEmail.jsx"
   },
   "resources/js/Pages/Dashboard.jsx": {
-    "file": "assets/Dashboard-OEPYe-uf.js",
+    "file": "assets/Dashboard-f8Q93A4H.js",
     "imports": [
-      "_AuthenticatedLayout-aWDFf3HU.js",
+      "_AuthenticatedLayout-hC5W6ofq.js",
       "resources/js/app.jsx",
       "_react-paginate-IfzBmxAq.js",
       "_tw-elements-react.es.min-45xkHG_Z.js",
@@ -226,9 +226,9 @@
     "src": "resources/js/Pages/EditReqItem.jsx"
   },
   "resources/js/Pages/Profile/Edit.jsx": {
-    "file": "assets/Edit-0SFZQ4F_.js",
+    "file": "assets/Edit-MV2bWZR2.js",
     "imports": [
-      "_AuthenticatedLayout-aWDFf3HU.js",
+      "_AuthenticatedLayout-hC5W6ofq.js",
       "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
@@ -278,9 +278,9 @@
     "src": "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx"
   },
   "resources/js/Pages/ReqDetail.jsx": {
-    "file": "assets/ReqDetail-zUNBYkfi.js",
+    "file": "assets/ReqDetail-7t7iNDz9.js",
     "imports": [
-      "_AuthenticatedLayout-aWDFf3HU.js",
+      "_AuthenticatedLayout-hC5W6ofq.js",
       "resources/js/app.jsx",
       "_react-paginate-IfzBmxAq.js",
       "_SideBar-LxcvG1Xt.js",
@@ -290,9 +290,9 @@
     "src": "resources/js/Pages/ReqDetail.jsx"
   },
   "resources/js/Pages/ReqDetails.jsx": {
-    "file": "assets/ReqDetails-8OnIGpR_.js",
+    "file": "assets/ReqDetails-CMVSQpzA.js",
     "imports": [
-      "_AuthenticatedLayout-aWDFf3HU.js",
+      "_AuthenticatedLayout-hC5W6ofq.js",
       "resources/js/app.jsx",
       "_react-paginate-IfzBmxAq.js",
       "_SideBar-LxcvG1Xt.js",
@@ -330,7 +330,7 @@
     "src": "resources/js/Pages/Welcome.jsx"
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-nHsDNaMk.css",
+    "file": "assets/app-UWNzdLVX.css",
     "src": "resources/js/app.jsx"
   }
 }

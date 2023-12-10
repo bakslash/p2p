@@ -13,10 +13,14 @@ export default defineConfig({
   server: {
     proxy: {
       '/': {
-        target: 'http://143.198.157.55/',  // Adjust this to match your Laravel development server
+        target: 'http://143.198.157.55', // Removed trailing slash
         changeOrigin: true,
       },
     },
+  },
+
+  optimizeDeps: {
+    include: ['react-dom', 'react-dom/server'],
   },
 
   build: {

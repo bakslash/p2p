@@ -9,6 +9,17 @@ jobs:
   laravel_tests:
     runs-on: ubuntu-latest
 
+    services:
+      database:
+        image: mysql:latest
+        env:
+          MYSQL_DATABASE: laravel
+          MYSQL_USER: marcus
+          MYSQL_PASSWORD: Muasa@2020New
+          MYSQL_ROOT_PASSWORD: root_password
+        ports:
+          - 3306:3306
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -27,20 +38,25 @@ jobs:
       - name: Configure Laravel environment
         run: |
           echo "DB_CONNECTION=mysql" >> .env
-          echo "DB_HOST=127.0.0.1" >> .env
+          echo "DB_HOST=database" >> .env
           echo "DB_PORT=3306" >> .env
           echo "DB_DATABASE=laravel" >> .env
-          echo "DB_USERNAME=testing_user" >> .env
-          echo "DB_PASSWORD=testing_password" >> .env
+          echo "DB_USERNAME=marcus" >> .env
+          echo "DB_PASSWORD=Muasa@2020New" >> .env
 
       - name: Install PHPUnit
         run: composer require --dev phpunit/phpunit
 
+      - name: Wait for MySQL to be ready
+        run: |
+          apt-get update
+          apt-get install -y wait-for-it
+
       - name: Artisan Migrate
-        run: php artisan migrate --env=testing
+        run: wait-for-it database:3306 -- php artisan migrate --env=testing
 
       - name: Run Laravel tests
-        run: php artisan test
+        run: wait-for-it database:3306 -- php artisan test
 
   react_tests:
     runs-on: ubuntu-latest
