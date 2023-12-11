@@ -38,7 +38,7 @@ jobs:
       - name: Configure Laravel environment
         run: |
           echo "DB_CONNECTION=mysql" >> .env
-          echo "DB_HOST=143.198.157.55" >> .env
+          echo "DB_HOST=database" >> .env
           echo "DB_PORT=3306" >> .env
           echo "DB_DATABASE=laravel" >> .env
           echo "DB_USERNAME=marcus" >> .env
@@ -51,10 +51,36 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y wait-for-it
-          wait-for-it 143.198.157.55:3306 -- php artisan migrate --env=testing
 
       - name: Artisan Migrate
-        run: php artisan migrate --env=testing
+        run: wait-for-it database:3306 -- php artisan migrate --env=testing
 
       - name: Run Laravel tests
-        run: php artisan test
+        run: wait-for-it database:3306 -- php artisan test
+
+  react_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install Node.js dependencies
+        run: npm install
+
+      - name: Update npm
+        run: npm install -g npm@latest
+
+      - name: Install Dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build React app
+        run: npm run build
+
+      - name: Run React tests
+        run: npm test
