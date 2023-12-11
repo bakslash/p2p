@@ -52,8 +52,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y wait-for-it
 
-      - name: Artisan Migrate
-        run: wait-for-it database:3306 -- php artisan migrate --env=testing
+      # - name: Artisan Migrate
+      #   run: wait-for-it database:3306 -- php artisan migrate --env=testing
 
       - name: Run Laravel tests
         run: wait-for-it database:3306 -- php artisan test
