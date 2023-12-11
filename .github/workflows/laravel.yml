@@ -38,7 +38,7 @@ jobs:
       - name: Configure Laravel environment
         run: |
           echo "DB_CONNECTION=mysql" >> .env
-          echo "DB_HOST=database" >> .env
+          echo "DB_HOST=143.198.157.55" >> .env
           echo "DB_PORT=3306" >> .env
           echo "DB_DATABASE=laravel" >> .env
           echo "DB_USERNAME=marcus" >> .env
@@ -73,9 +73,7 @@ jobs:
       - name: Install Node.js dependencies
         run: npm install
 
-      - name: Update npm
-        run: npm install -g npm@latest
-
+      
       - name: Install Dependencies
         run: npm install --legacy-peer-deps
 
