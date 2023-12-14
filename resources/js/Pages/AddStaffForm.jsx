@@ -20,11 +20,31 @@ const AddStaffForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add logic to handle form submission (e.g., send data to backend)
-    console.log('Form data submitted:', formData);
+  
+    try {
+      const response = await fetch('http://localhost:8000/staff', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        // Assuming you want to navigate to another page on success
+        window.location.href = '/success';
+      } else {
+        console.error('Failed to submit form:', response.statusText);
+        // Handle error accordingly (e.g., show an error message)
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error.message || 'Unknown error');
+      // Handle error accordingly (e.g., show an error message)
+    }
   };
+  
 
   return (
     <div className="mt-8 p-6 bg-white rounded shadow m-8">
@@ -187,6 +207,7 @@ const AddStaffForm = () => {
         {/* Submit Button */}
         <button
           type="submit"
+          onClick={handleSubmit}
           className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 mt-4"
         >
           Add Staff

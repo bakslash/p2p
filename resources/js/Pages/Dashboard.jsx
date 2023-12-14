@@ -61,7 +61,7 @@ const Dashboard = ({ auth }) => {
         // Perform different actions based on the actionType
         switch (actionType) {
             case 'View':
-                setShowReqModal(true);
+                window.location.href = `/view_req/${req.id}`;
                 break;
             case 'Edit':
                 window.location.href = `/edit_req/${req.id}`;

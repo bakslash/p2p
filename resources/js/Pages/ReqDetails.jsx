@@ -30,7 +30,7 @@ export default function ReqItems({ auth }) {
             // Set the status based on the operation
             const prStatus = isSubmitting ? true : false;
 
-            const response = await axios.post(`http://localhost:8000/req_details/add`, {
+            const response = await axios.post(`http://localhost:8000/req_items/add`, {
                 item,
                 quantity,
                 measure,

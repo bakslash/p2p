@@ -286,6 +286,7 @@ const handleSubmit = async (e) => {
                 name="dac_number"
                 placeholder="dac number"
                 required
+                value={editReq.dac_number}
                 onChange={handleChange}
 
               />
@@ -302,6 +303,7 @@ const handleSubmit = async (e) => {
                 name="currency"
                 required
                 onChange={handleChange}
+                value={editReq.currency}
 
               >
                 <option value="" disabled selected>select currency</option>
@@ -320,6 +322,7 @@ const handleSubmit = async (e) => {
                 className="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 id="office"
                 name="office"
+                value={editReq.office}
                 required
                 onChange={handleChange}
 
@@ -346,6 +349,7 @@ const handleSubmit = async (e) => {
                 name="purchase_category"
                 required
                 onChange={handleChange}
+                value={editReq.purchase_category}
 
               >
                 <option value="" disabled selected>select category</option>
@@ -362,6 +366,7 @@ const handleSubmit = async (e) => {
                 name="vat"
                 required
                 onChange={handleChange}
+                value={editReq.vat}
 
               >
                  <option value="" disabled selected>select vat</option>

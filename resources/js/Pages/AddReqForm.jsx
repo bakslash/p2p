@@ -351,15 +351,15 @@ const AddReqForm = () => {
           </div>
 
           <div className="flex justify-end mt-6">
-          <a href='/req_details' className="">
+         
             <button
               type="button"
               className="text-gray-500 bg-green-400 border border-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 py-1 px-4"
-             // onClick={handleSubmit}
+              onClick={handleSubmit}
             >
               Proceed to req Items
             </button>
-       </a>
+     
           </div>
         </form>
       </div>

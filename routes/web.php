@@ -56,7 +56,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //get all reqs details
     Route::get('/reqs', [ReqController::class, 'getAllReqs'])->name('reqs.getAllReqs');
     //get single req detail
-    Route::get('/req/{id}', [ReqController::class, 'edit'])->name('req.edit');
+    Route::get('/edit_req/{id}', [ReqController::class, 'edit'])->name('req.edit');
+    //view single req render
+    Route::get('/req/{id}', [ReqController::class, 'show'])->name('req.show');
+    Route::get('/view_req/{id}',fn () => Inertia::render('ViewReqForm'))->name('req.show');
     
     //edit req render
     Route::get('/edit_req/{id}', fn ($id) => Inertia::render('EditReqForm'))->name('edit_req');
@@ -70,11 +73,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::put('/reqs_items/{id}', [ReqDetailsController::class, 'update']);
 
-
     Route::post('/req_items/add', [ReqDetailsController::class, 'add']);
 
 // Fetch Req items for a req_id
-    Route::get('/req_items/{id}/edit', [ReqDetailsController::class, 'fetch']);
+    Route::get('/req_item/{id}', [ReqDetailsController::class, 'fetch']);
 
     Route::get('/req_items/{id}', fn ($id) => Inertia::render('EditReqItem'))->name('edit_req_item');
 

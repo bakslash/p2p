@@ -23,7 +23,7 @@ const ReqItemsTable = ({  handleSelect }) => {
 
     // useEffect to fetch reqs data when the component mounts
     useEffect(() => {
-       // fetchReqDetails();
+        fetchReqDetails();
     }, []);
   return (
     <div className="table-responsive text-nowrap  mb-6">
