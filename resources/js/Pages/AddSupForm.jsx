@@ -6,7 +6,7 @@ const AddSupForm = () => {
     const [formData, setFormData] = useState({
         category: '',
         physical_location: '',
-        company_name: '',
+        account_name: '',
         tel_number_1: '',
         tel_number_2: '',
         postal_address: '',
@@ -104,8 +104,8 @@ const AddSupForm = () => {
                             <input
                                 type="text"
                                 className="form-control mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                id="company_name"
-                                name="company_name"
+                                id="account_name"
+                                name="account_name"
                                 placeholder="Company Name"
                                 required
                                 onChange={handleChange}

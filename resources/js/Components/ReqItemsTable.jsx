@@ -4,18 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
-const ReqItemsTable = ({  handleSelect }) => {
+const ReqItemsTable = ({  handleSelect}) => {
   
     const [quantity, setQuantity] = useState('');
     const [measure, setMeasure] = useState('');
     const [items, setItems] = useState([]);
     const [status, setStatus] = useState(true);
-
+const id = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
     const fetchReqDetails = async () => {
         try {
-            const response = await axios.get(`/req_items`);
+            const response = await axios.get(`/req_item/${id}`);
             console.log('res', response);
-            setItems(response.data.reqs);
+            setItems(response.data.data);
         } catch (error) {
             console.error('Error fetching reqs:', error);
         }

@@ -12,6 +12,7 @@ const ReqDetailForm = ({ showModal, setShowModal }) => {
 
   const [tableData, setTableData] = useState([]);
 
+
   const handleChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -21,8 +22,9 @@ const ReqDetailForm = ({ showModal, setShowModal }) => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/req_items/add', formData);
+      const response = await axios.post('http://localhost:8000/req_item/add', formData);
       console.log('Form submitted successfully:', response.data);
+      
 
       // Update the tableData state with the submitted data
       //  setTableData((prevTableData) => [...prevTableData, response.data]);

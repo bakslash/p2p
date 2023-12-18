@@ -102,7 +102,7 @@ export default function ReqItems({ auth }) {
                                
 
                                 {/* Use the DataTableComponent here */}
-                                <ReqItemsTable items={items}  handleSelect={handleSelect}/>
+                                <ReqItemsTable items={items}  handleSelect={handleSelect} />
 
                                 <div className="flex justify-around ">
                                     <button

@@ -24,6 +24,13 @@
       "resources/js/app.jsx"
     ]
   },
+  "_ReqItemsTable-H0IgWVJw.js": {
+    "file": "assets/ReqItemsTable-H0IgWVJw.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_react-paginate-R4bIOZAi.js"
+    ]
+  },
   "_SideBar-LxcvG1Xt.js": {
     "file": "assets/SideBar-LxcvG1Xt.js",
     "imports": [
@@ -42,11 +49,11 @@
       "resources/js/app.jsx"
     ]
   },
-  "_react-paginate-IfzBmxAq.js": {
-    "file": "assets/react-paginate-IfzBmxAq.js",
+  "_react-paginate-R4bIOZAi.js": {
+    "file": "assets/react-paginate-R4bIOZAi.js",
     "imports": [
-      "resources/js/app.jsx",
-      "_index-v-lOFoFl.js"
+      "_index-v-lOFoFl.js",
+      "resources/js/app.jsx"
     ]
   },
   "_transition-yJzLUtya.js": {
@@ -55,14 +62,12 @@
       "resources/js/app.jsx"
     ]
   },
-  "_tw-elements-react.es.min-45xkHG_Z.js": {
-    "file": "assets/tw-elements-react.es.min-45xkHG_Z.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
+  "public/assets/img/logos/logo.jpeg": {
+    "file": "assets/logo-iX9Q89F7.jpeg",
+    "src": "public/assets/img/logos/logo.jpeg"
   },
   "resources/js/Pages/AddDepForm.jsx": {
-    "file": "assets/AddDepForm-XKczI8E6.js",
+    "file": "assets/AddDepForm-gfpEbErJ.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -86,7 +91,7 @@
     "src": "resources/js/Pages/AddPoDForm.jsx"
   },
   "resources/js/Pages/AddReqForm.jsx": {
-    "file": "assets/AddReqForm-uZ54nRaW.js",
+    "file": "assets/AddReqForm-5_44MiKo.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -94,7 +99,7 @@
     "src": "resources/js/Pages/AddReqForm.jsx"
   },
   "resources/js/Pages/AddStaffForm.jsx": {
-    "file": "assets/AddStaffForm-jsHjeidw.js",
+    "file": "assets/AddStaffForm-j7y7fbmm.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -195,12 +200,11 @@
     "src": "resources/js/Pages/Auth/VerifyEmail.jsx"
   },
   "resources/js/Pages/Dashboard.jsx": {
-    "file": "assets/Dashboard-f8Q93A4H.js",
+    "file": "assets/Dashboard-28NTfvVH.js",
     "imports": [
       "_AuthenticatedLayout-hC5W6ofq.js",
       "resources/js/app.jsx",
-      "_react-paginate-IfzBmxAq.js",
-      "_tw-elements-react.es.min-45xkHG_Z.js",
+      "_react-paginate-R4bIOZAi.js",
       "_SideBar-LxcvG1Xt.js",
       "_index-v-lOFoFl.js"
     ],
@@ -208,7 +212,7 @@
     "src": "resources/js/Pages/Dashboard.jsx"
   },
   "resources/js/Pages/EditReqForm.jsx": {
-    "file": "assets/EditReqForm-AfL9zvKq.js",
+    "file": "assets/EditReqForm-0UFc_NAy.js",
     "imports": [
       "resources/js/app.jsx",
       "_SideBar-LxcvG1Xt.js"
@@ -278,11 +282,12 @@
     "src": "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx"
   },
   "resources/js/Pages/ReqDetail.jsx": {
-    "file": "assets/ReqDetail-7t7iNDz9.js",
+    "file": "assets/ReqDetail-6tj5dPKx.js",
     "imports": [
       "_AuthenticatedLayout-hC5W6ofq.js",
       "resources/js/app.jsx",
-      "_react-paginate-IfzBmxAq.js",
+      "_ReqItemsTable-H0IgWVJw.js",
+      "_react-paginate-R4bIOZAi.js",
       "_SideBar-LxcvG1Xt.js",
       "_index-v-lOFoFl.js"
     ],
@@ -290,11 +295,12 @@
     "src": "resources/js/Pages/ReqDetail.jsx"
   },
   "resources/js/Pages/ReqDetails.jsx": {
-    "file": "assets/ReqDetails-CMVSQpzA.js",
+    "file": "assets/ReqDetails-sAs6ddrT.js",
     "imports": [
       "_AuthenticatedLayout-hC5W6ofq.js",
       "resources/js/app.jsx",
-      "_react-paginate-IfzBmxAq.js",
+      "_ReqItemsTable-H0IgWVJw.js",
+      "_react-paginate-R4bIOZAi.js",
       "_SideBar-LxcvG1Xt.js",
       "_index-v-lOFoFl.js"
     ],
@@ -310,13 +316,12 @@
     "src": "resources/js/Pages/Success.jsx"
   },
   "resources/js/Pages/ViewReqForm.jsx": {
-    "file": "assets/ViewReqForm-8ShZ9bX8.js",
+    "assets": [
+      "assets/logo-iX9Q89F7.jpeg"
+    ],
+    "file": "assets/ViewReqForm-xgRwfBMd.js",
     "imports": [
-      "resources/js/app.jsx",
-      "_react-paginate-IfzBmxAq.js",
-      "_SideBar-LxcvG1Xt.js",
-      "_tw-elements-react.es.min-45xkHG_Z.js",
-      "_index-v-lOFoFl.js"
+      "resources/js/app.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/ViewReqForm.jsx"
@@ -330,7 +335,7 @@
     "src": "resources/js/Pages/Welcome.jsx"
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-UWNzdLVX.css",
+    "file": "assets/app-Wah_Cp2o.css",
     "src": "resources/js/app.jsx"
   }
 }

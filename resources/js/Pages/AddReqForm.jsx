@@ -27,6 +27,8 @@ const AddReqForm = () => {
       [e.target.name]: e.target.value,
     }));
   };
+  const [id, setId] = useState();
+  
 
   const handleSubmit = async () => {
     try {
@@ -35,9 +37,9 @@ const AddReqForm = () => {
       const response = await axios.post('http://localhost:8000/reqs', formData);
   console.log(formData);
       if (response) {
-
+        setId(response.data.id)
         // Assuming you want to navigate to '/req_details' on success
-        window.location.href = '/req_details';
+        window.location.href = `/req_items/${id}`;
       } else {
         console.log('check Req :', response.data);
       }
