@@ -49,7 +49,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/api/req_items', [ReqDetailsController::class, 'AllReqItems']);
     Route::get('/req_item/{id}', [ReqDetailsController::class, 'fetch']);
     Route::put('/reqs_item/{id}', [ReqDetailsController::class, 'update']);
-    Route::get('/req_item/{id}/edit', fn ($id) => Inertia::render('EditReqItem'))->name('edit_req_item');
+    Route::get('/edit_item/{id}', fn ($id) => Inertia::render('EditReqItem'))->name('edit_req_item');
 
     // Success view
     Route::get('/success', fn () => Inertia::render('Success'))->name('success');

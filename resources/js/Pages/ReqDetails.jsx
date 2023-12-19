@@ -59,7 +59,7 @@ export default function ReqItems({ auth }) {
                 setShowReqModal(true);
                 break;
             case 'Edit':
-               window.location.href = `/req_items/${item.id}`;
+               window.location.href = `/edit_item/${item.id}`;
                     
                 
                 break;

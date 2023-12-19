@@ -11,11 +11,12 @@ const EditReqItem = () => {
   var id 
 
   const parsePageId = (path) => path.substring(path.lastIndexOf('/') + 1)
+  console.log('id',parsePageId);
   id = parsePageId(window.location.pathname)
   // Assume you have a function to fetch the items
   const fetchItems = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/req_items/${id}/edit`);
+      const response = await axios.get(`http://localhost:8000/req_item/${id}`);
      console.log(response);
       setItems(response.data.data);
     } catch (error) {
