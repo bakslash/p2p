@@ -64,7 +64,7 @@ const handleSubmit = async (e) => {
     console.log('data', editReq, response);
 
     if (response) {
-      window.location.href = `/req_details`;
+      window.location.href = `/req_items/${id}`;
       console.log('success' ,id);
     } else {
       console.log('Req failed:', response.data.message || 'Unknown error');
