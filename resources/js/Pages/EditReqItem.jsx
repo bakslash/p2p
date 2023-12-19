@@ -38,7 +38,7 @@ console.log(items);
     
     try {
       const response = await axios.put(
-        `http://localhost:8000/reqs_items/${id}`,
+        `http://localhost:8000/reqs_item/${id}`,
         updatedItem
       );
 
