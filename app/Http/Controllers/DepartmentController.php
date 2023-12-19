@@ -1,35 +1,28 @@
 <?php
 
-// app/Http/Controllers/DepartmentController.php
+// app/Http/Controllers/deptsController.php
 
 namespace App\Http\Controllers;
 
-use App\Models\Department;
+use App\Models\depts;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
-    // Fetch all departments
+    // Fetch all depts
     public function index()
     {
-        $departments = Department::all();
-        return response()->json($departments);
+        $depts = depts::all();
+        return response()->json($depts);
     }
 
-    // Add a new department
+    // Add a new depts
     public function store(Request $request)
     {
-        $request->validate([
-            'parentCompany' => 'required',
-            'depName' => 'required',
-            'depCode' => 'required',
-            'depHod' => 'required',
-            'depHbu' => 'required',
-            'isDepActive' => 'boolean',
-        ]);
+       
 
-        $department = Department::create([
-            'parent_company' => $request->input('parentCompany'),
+        $depts = depts::create([
+            
             'dep_name' => $request->input('depName'),
             'dep_code' => $request->input('depCode'),
             'dep_hod' => $request->input('depHod'),
@@ -37,6 +30,6 @@ class DepartmentController extends Controller
             'is_active' => $request->input('isDepActive', true),
         ]);
 
-        return response()->json($department, 201);
+        return response()->json($depts, 201);
     }
 }

@@ -100,12 +100,23 @@
       "slug": "laravel-example",
       "submenu": [
         {
+          "url": "/suppliers_list",
+          "name": "View Suppliers",
+          "slug": "View suppliers",
+          "target": "_blank"
+        },
+        {
           "url": "/add_suppliers",
           "name": "Add/Edit Suppliers",
           "slug": "add/edit suppliers",
           "target": "_blank"
         },
-        
+        {
+          "url": "/staff_list",
+          "name": "View Staff",
+          "slug": "view staff",
+          "target": "_blank"
+        },
         {
           "url": "/add_staff",
           "name": "Add/Edit Staff",

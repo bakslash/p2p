@@ -15,6 +15,7 @@ use Inertia\Inertia;
 
 
 // Other routes...
+Route::redirect('/', '/login');
 
 // Middleware group for authenticated and verified users
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -54,6 +55,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/success', fn () => Inertia::render('Success'))->name('success');
 
     // Supplier routes
+    Route::get('/suppliers_list',  fn () => Inertia::render('ViewSuppliers'))->name('suppliers_list');
     Route::get('/suppliers', [SupplierController::class, 'index']);
     Route::post('/suppliers', [SupplierController::class, 'store']);
     Route::get('/add_suppliers', fn () => Inertia::render('AddSupForm'))->name('add_suppliers');
@@ -67,6 +69,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/staff', [staffController::class, 'index']);
     Route::post('/staff', [staffController::class, 'store']);
+    Route::get('/staff_list',  fn () => Inertia::render('ViewStaff'))->name('staff_list');
     Route::get('/add_staff', fn () => Inertia::render('AddStaffForm'))->name('add_staff');
 
     // UOM routes

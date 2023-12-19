@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const AddPoDForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -10,15 +11,31 @@ const AddPoDForm = ({ onSubmit }) => {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
-      ...prevData,
-      [name]: type === 'checkbox' ? checked : value,
+        ...prevData,
+        [name]: type === 'checkbox' ? checked : value,
     }));
-  };
+};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(formData);
-  };
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await axios.post('http://localhost:8000/pod', formData);
+
+    if (response) {
+      
+      // Assuming you want to navigate to '/req_details' on success
+      window.location.href = `/success`;
+    } else {
+      console.log('check  :', response.data);
+    }
+    // Optionally, you can perform additional actions upon successful submission
+
+  } catch (error) {
+    console.error('An error occurred during form data submission:', error);
+  }
+};
 
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded shadow">
@@ -51,8 +68,8 @@ const AddPoDForm = ({ onSubmit }) => {
           </label>
           <input
             type="text"
-            id="depName"
-            name="depName"
+            id="point_of_delivery"
+            name="point_of_delivery"
             value={formData.point_of_delivery}
             onChange={handleChange}
             className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"

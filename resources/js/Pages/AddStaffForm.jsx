@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const AddStaffForm = () => {
   const [formData, setFormData] = useState({
@@ -24,15 +25,9 @@ const AddStaffForm = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch('http://localhost:8000/staff', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await axios.post('http://localhost:8000/staff',formData);
   
-      if (response.ok) {
+      if (response) {
         // Assuming you want to navigate to another page on success
         window.location.href = '/success';
       } else {

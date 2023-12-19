@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\PoD; // Assuming you have a PoD model
+use App\Models\pods; // Assuming you have a PoD model
 
 class PoDController extends Controller
 {
     // Fetch all PoDs
     public function index()
     {
-        $pods = PoD::all();
+        $pods = pods::all();
 
         return response()->json($pods);
     }
@@ -19,12 +19,12 @@ class PoDController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
-            'isActive' => 'required|boolean',
+            'point_of_delivery' => 'required|string|max:255',
+           
+            'isDepActive' => 'required|boolean',
         ]);
 
-        $pod = PoD::create($request->all());
+        $pod = pods::create($request->all());
 
         return response()->json($pod, 201);
     }

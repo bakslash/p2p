@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class staff extends Model
 {
     use HasFactory;
-    protected $fillable = ['username','email','title','staff_names'];
+    protected $fillable = ['isAdmin','isActive','office','staffNames','username','email','title','lineManager'];
 }
