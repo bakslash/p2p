@@ -15,16 +15,16 @@
         },
         {
           "url": "/add_req",
-          "name": "Add/Edit Quotation",
+          "name": "Add/Edit Req Details",
           "slug": "approval"
         },
         {
-          "url": "/form/edit-req",
+          "url": "/quotations",
           "name": "Quotations",
           "slug": "quotations"
         },
         {
-          "url": "/form/edit-req",
+          "url": "/edit-req",
           "name": "Purchase Order",
           "slug": "purchase-order"
         },

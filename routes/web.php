@@ -94,6 +94,9 @@ Route::get('/add_departments', fn () => Inertia::render('AddDepForm'))->name('ad
 Route::get('/add_invoice', fn () => Inertia::render('AddInvoice'))->name('add_invoice');
 Route::post('/invoices', [invoiceController::class, 'store'])->name('invoices.store');
 
+Route::get('/add_quote/{id}', fn () => Inertia::render('Quote'))->name('quote');
+Route::get('/quotations', fn () => Inertia::render('Quotations'))->name('quotations');
+
 });
 
 require __DIR__.'/auth.php';
